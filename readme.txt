@@ -1,7 +1,6 @@
 SPay WooCommerce Payment Gateway
-
-Introduction
-
+Contributors: SPay
+Donate link:
 Tags: woocommerce, payment gateway, payment gateways, mastercard, visa cards, mastercards, verve cards, Data Quotient Limited, verve, nigeria, SPay
 Requires at least: 5.8
 Tested up to: 6.2
