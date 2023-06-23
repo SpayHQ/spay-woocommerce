@@ -102,6 +102,6 @@
 
 # **Changelog**
 
-## **1.0.0 - June 21, 2023**
+## **1.0.1 - June 21, 2023**
 
 - ### First release
