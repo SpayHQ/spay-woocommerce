@@ -197,8 +197,8 @@
 
     // Receipt page
     public function receipt_page($order_id) {
-      echo '<p>Thank you - your order is now pending payment. You will be automatically redirected to SPay Gateway to make payment.</p>';
-      echo $this->generate_spay_form($order_id);
+      echo esc_html('<p>Thank you - your order is now pending payment. You will be automatically redirected to SPay Gateway to make payment.</p>');
+      echo esc_attr($this->generate_spay_form($order_id));
     }
 
     public function check_payment_response() {
