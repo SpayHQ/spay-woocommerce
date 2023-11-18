@@ -9,8 +9,7 @@
   License:         GPL-2.0+
  	License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
  	GitHub Plugin URI: https://github.com/SpayHQ/spay-woocommerce
-*/
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
+*/  
 add_action( 'plugins_loaded', 'dq_spay_payments_init', 0 );
 function dq_spay_payments_init() {
     //if condition use to do nothin while WooCommerce is not installed
