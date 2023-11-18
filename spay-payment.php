@@ -117,7 +117,7 @@
     public function do_ssl_check() {
       if( $this->enabled == "yes" ) {
         if( get_option( 'woocommerce_force_ssl_checkout' ) == "no" ) {
-          echo wp_kses("<div class=\"error\"><p>". sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL certificate on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) ."</p></div>");  
+          echo wp_kses("<div class=\"error\"><p>"). sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL certificate on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) .wp_kses("</p></div>");  
         }
       }    
     }
@@ -371,7 +371,7 @@
     
       if ( "TRUE" == $environment  ) {
         /*  SPay settings page URL link. */
-        echo wp_kses('<div class="error"><p>' . sprintf( __( 'SPay test mode is still enabled, Click <strong><a href="%s">here</a></strong> to disable it when you want to start accepting live payment on your site.', 'woo-spay' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments' ) ) ) . '</p></div>');
+        echo wp_kses('<div class="error"><p>') . sprintf( __( 'SPay test mode is still enabled, Click <strong><a href="%s">here</a></strong> to disable it when you want to start accepting live payment on your site.', 'woo-spay' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments' ) ) ) . wp_kses('</p></div>');
       }
     }
   }
