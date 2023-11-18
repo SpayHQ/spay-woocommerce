@@ -10,7 +10,7 @@
       $this->has_fields = false;
      
       
-    
+      if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly    
       // setting defines
       $this->init_form_fields();
 
@@ -117,7 +117,7 @@
     public function do_ssl_check() {
       if( $this->enabled == "yes" ) {
         if( get_option( 'woocommerce_force_ssl_checkout' ) == "no" ) {
-          echo "<div class=\"error\"><p>". sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL certificate on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) ."</p></div>";  
+          echo wp_kses("<div class=\"error\"><p>". sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL certificate on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) ."</p></div>");  
         }
       }    
     }
@@ -197,14 +197,14 @@
     // Receipt page
     public function receipt_page($order_id) {
       echo '<p>Thank you - your order is now pending payment. You will be automatically redirected to SPay Gateway to make payment.</p>';
-      echo $this->generate_spay_form($order_id);
+      echo esc_attr($this->generate_spay_form($order_id));
     }
 
     public function check_payment_response() {
       
-      $reference = isset($_GET['spay_trans_ref']) ? $_GET['spay_trans_ref'] : $_GET['trans_ref'];
+      $reference = isset(sanitize_text_field($_GET['spay_trans_ref'])) ? sanitize_text_field($_GET['spay_trans_ref']) : sanitize_text_field($_GET['trans_ref']);
 
-      $order_id =  explode( '-',  $_GET['trans_ref']);
+      $order_id =  explode( '-',  sanitize_text_field($_GET['trans_ref']));
 
       $order    = wc_get_order( $order_id[2] );
 
@@ -371,7 +371,7 @@
     
       if ( "TRUE" == $environment  ) {
         /*  SPay settings page URL link. */
-        echo '<div class="error"><p>' . sprintf( __( 'SPay test mode is still enabled, Click <strong><a href="%s">here</a></strong> to disable it when you want to start accepting live payment on your site.', 'woo-spay' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments' ) ) ) . '</p></div>';
+        echo wp_kses('<div class="error"><p>' . sprintf( __( 'SPay test mode is still enabled, Click <strong><a href="%s">here</a></strong> to disable it when you want to start accepting live payment on your site.', 'woo-spay' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments' ) ) ) . '</p></div>');
       }
     }
   }
