@@ -101,9 +101,11 @@ For FTP manuel installation, [check here](https://www.spaybusiness.com "Google S
 
 2. You need to open an SPay merchant account [here](https://wwww.spaybusiness.com/register "Google Search").
 
+3. How plugin connect to our server - the make an https request to the gateway server to complete the Payment
+
 == Screenshots ==
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Screenshots are stored in the /assets directory.
-2. This is the second screen shot
+1. screenshot-1.png - how the plugin will appear under plugin
+2. screenshot-1.png - plugin management page, you can toggle off or now the plugin and also set the required credentials
 
 == Changelog ==
 
