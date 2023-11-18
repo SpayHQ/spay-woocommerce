@@ -1,5 +1,4 @@
 <?php
-  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
   class DQ_spay_payments extends WC_Payment_Gateway {
     function __construct() {
       $this->id = "dq_spay_payments";
