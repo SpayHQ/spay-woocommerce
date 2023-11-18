@@ -1,4 +1,5 @@
 <?php
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
   class DQ_spay_payments extends WC_Payment_Gateway {
     function __construct() {
       $this->id = "dq_spay_payments";
@@ -10,7 +11,7 @@
       $this->has_fields = false;
      
       
-      if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly    
+    
       // setting defines
       $this->init_form_fields();
 
@@ -202,9 +203,9 @@
 
     public function check_payment_response() {
       
-      $reference = isset(sanitize_text_field($_GET['spay_trans_ref'])) ? sanitize_text_field($_GET['spay_trans_ref']) : sanitize_text_field($_GET['trans_ref']);
+      $reference = isset($_GET['spay_trans_ref']) ? $_GET['spay_trans_ref'] : $_GET['trans_ref'];
 
-      $order_id =  explode( '-',  sanitize_text_field($_GET['trans_ref']));
+      $order_id =  explode( '-',  $_GET['trans_ref']);
 
       $order    = wc_get_order( $order_id[2] );
 
