@@ -371,7 +371,7 @@
     
       if ( "TRUE" == $environment  ) {
         /*  SPay settings page URL link. */
-        echo '<div class="error"><p>') . sprintf( __( 'SPay test mode is still enabled, Click <strong><a href="%s">here</a></strong> to disable it when you want to start accepting live payment on your site.', 'woo-spay', esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments' ) )  . '</p></div>';
+        echo '<div class="error"><p>' . sprintf( __( 'SPay test mode is still enabled, Click <strong><a href="%s">here</a></strong> to disable it when you want to start accepting live payment on your site.', 'woo-spay' ), esc_url( admin_url( 'admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments' ) ) ) . '</p></div>';
       }
     }
   }
