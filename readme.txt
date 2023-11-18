@@ -1,14 +1,16 @@
+=== Plugin Name ===
 SPay WooCommerce Payment Gateway
 Contributors: SPay
 Donate link:
 Tags: woocommerce, payment gateway, payment gateways, mastercard, visa cards, mastercards, verve cards, Data Quotient Limited, verve, nigeria, SPay
 Requires at least: 5.8
 Tested up to: 6.2
-Stable tag: 5.7.5
+Stable tag: 1.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+== Description ==
 SPay WooCommerce Payment Gateway allows you to accept online payments from local and international customers.  
 
 Description
@@ -17,11 +19,11 @@ This is an SPay payment gateway for WooCommerce.
 
 SPay is on a mission to deliver a safe and convenient payment experience for merchants and customers. SPay provides Nigerians with the tools and services needed to accept online payments using Mastercard, Visa, Verce, USSD, Bank Transfer.
 
- To Signup for a SPay Merchant account visit their website by clicking [here](https://spaybusiness.com/register "Google Search")
+To Signup for a SPay Merchant account visit their website by clicking [here](https://spaybusiness.com/register "Google Search")
 
- SPay WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using Mastercard, Visa, Verve, Bank transfer.
+SPay WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using Mastercard, Visa, Verve, Bank transfer.
 
- With this SPay WooCommerce Payment Gateway plugin, you will be able to accept the following payment methods in your shop:
+With this SPay WooCommerce Payment Gateway plugin, you will be able to accept the following payment methods in your shop:
 
 
 -  Mastercard
@@ -51,10 +53,9 @@ SPay is on a mission to deliver a safe and convenient payment experience for mer
 -  Refunds from the WooCommerce order details page. Refund an order directly from the order details page
 
 
- Installation
+Installation
 
- Automatic Installation
-
+Automatic Installation
 
 -  Login to your WorldPress Dashboard.
 
@@ -92,7 +93,7 @@ SPay is on a mission to deliver a safe and convenient payment experience for mer
 For FTP manuel installation, [check here](https://www.spaybusiness.com "Google Search")
 
 
- FAQ
+== Frequently Asked Questions ==
 
  Why Do I Need To Use The Plugin
 
@@ -100,9 +101,16 @@ For FTP manuel installation, [check here](https://www.spaybusiness.com "Google S
 
 2. You need to open an SPay merchant account [here](https://wwww.spaybusiness.com/register "Google Search").
 
+== Screenshots ==
+1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Screenshots are stored in the /assets directory.
+2. This is the second screen shot
 
- Changelog
+== Changelog ==
 
- 1.0.1 - June 21, 2023
+1.0 - June 21, 2023
 
 -  First release
+
+ == Upgrade Notice == 
+
+ First version

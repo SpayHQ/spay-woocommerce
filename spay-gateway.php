@@ -3,13 +3,14 @@
   Plugin Name: SPay Payment Gateway
 	Plugin URI: https://spaybusiness.com
 	Description: SPay Payment Gateway allows you to accept payment on your Woocommerce store via Cards, USSD and Transfer.
-	Version: 1.0.1
+	Version: 1.0
 	Author: Data Quotient Limited
 	Author URI: http://dataquot.com
   License:         GPL-2.0+
  	License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
  	GitHub Plugin URI: https://github.com/SpayHQ/spay-woocommerce
 */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly  
 add_action( 'plugins_loaded', 'dq_spay_payments_init', 0 );
 function dq_spay_payments_init() {
     //if condition use to do nothin while WooCommerce is not installed
