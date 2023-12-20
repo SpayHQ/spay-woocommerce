@@ -8,7 +8,7 @@
 
 **Tested up to:** 6.4
 
-**Stable tag:** 5.7.5
+**Stable tag:** 1.0
 
 **Requires PHP:** 7.4
 
@@ -110,6 +110,6 @@
 
 # **Changelog**
 
-## **1.0.1 - June 21, 2023**
+## **1.0 - June 21, 2023**
 
 - ### First release

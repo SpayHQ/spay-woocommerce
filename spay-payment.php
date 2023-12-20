@@ -1,5 +1,8 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
+ 
+
 const LIVE_JS_URL = plugins_url('assets/pay_live/static/js/spay_checkout.js', __FILE__);
 const TEST_JS_URL = plugins_url('assets/pay_test/static/js/spay_checkout.js', __FILE__);
 const ICON_URL =   plugins_url('assets/images/spay-icon.png', __FILE__);
@@ -134,7 +137,6 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     // } 
   
 
-
     // Display Button
     public function generate_spay_form($order_id) {
       // Get order details
@@ -199,6 +201,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
           <script type="text/javascript" src="' . esc_url($environment_url) . '"> </script>
       ';
     }
+
 
     // Helper function to get billing first name
     private function get_order_billing_first_name($order) {
@@ -395,6 +398,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
             return;
         }
     
+
         $environment      = ($this->environment === "yes") ? true : false;
         if($environment){
             $settings_page_url = esc_url(admin_url('admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments'));
