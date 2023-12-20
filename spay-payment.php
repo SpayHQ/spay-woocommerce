@@ -151,7 +151,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
       $environment = ($this->environment === "yes") ? 'TRUE' : 'FALSE';
 
       // Set environment URL for JavaScript
-      $environment_url = ($environment === 'FALSE')? LIVE_JS_URL : TEST_JS_URL
+      $environment_url = ($environment === 'FALSE')? LIVE_JS_URL : TEST_JS_URL;
 
       wp_enqueue_style('style', 'assets/pay_live/static/css/spay_checkout.css');
 
