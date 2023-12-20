@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.951" height="22.009" viewBox="0 0 12.951 22.009">
+  <g id="ussdIcon" transform="translate(0 0)">
+    <rect id="Rectangle_19" data-name="Rectangle 19" width="11.709" height="22.009" rx="5.855" transform="translate(0.681 0)" fill="#cfffdd"/>
+    <path id="Path_198" data-name="Path 198" d="M214.09,212.76s1.344,7.289,10.737,8.771l.008,5.8-.783,1.284h-9.125l-.8-1.07Z" transform="translate(-212.954 -207.167)" fill="#eefff3"/>
+    <path id="Path_199" data-name="Path 199" d="M204.1,108.7h-9.568a1.694,1.694,0,0,0-1.692,1.692v18.593a1.694,1.694,0,0,0,1.692,1.693H204.1a1.694,1.694,0,0,0,1.691-1.693V110.392A1.694,1.694,0,0,0,204.1,108.7Zm-9.832,1.692a.267.267,0,0,1,.264-.264H204.1a.267.267,0,0,1,.264.264v2.31h-10.1Zm9.832,18.861h-9.568a.264.264,0,0,1-.264-.264v-2.311h10.1v2.307a.264.264,0,0,1-.264.267Zm-9.832-15.122h10.1v11.119h-10.1Z" transform="translate(-192.84 -108.672)" fill="#43b363"/>
+    <rect id="Rectangle_20" data-name="Rectangle 20" width="3.109" height="1.429" rx="0.715" transform="translate(3.673 2.029)" fill="#43b363"/>
+    <rect id="Rectangle_21" data-name="Rectangle 21" width="2.115" height="1.429" rx="0.715" transform="translate(5.419 18.578)" fill="#43b363"/>
+    <rect id="Rectangle_22" data-name="Rectangle 22" width="1.429" height="1.429" rx="0.715" transform="translate(7.9 2.029)" fill="#43b363"/>
+    <path id="Path_1319" data-name="Path 1319" d="M1.976,57.635.6,56.57q.653-.738,1.366-1.411c.188-.182.307-.3.355-.346q-.223-.037-1.3-.3Q.245,54.321,0,54.229l.537-1.6a13.888,13.888,0,0,1,2.131,1.064A17.4,17.4,0,0,1,2.45,51.27H4.07a21.457,21.457,0,0,1-.245,2.441q.182-.073.783-.356.82-.374,1.511-.637L6.6,54.37q-1.011.228-2.34.446l1.093,1.222q.328.373.519.61l-1.393.92L3.251,55.537Q2.7,56.524,1.976,57.635Z" transform="translate(3.118 -43.635)" fill="#43b363"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "main.css": "/static/css/spay_checkout.css",
+  "main.js": "/static/js/spay_checkout.js",
+  "main.js.map": "/static/js/spay_checkout.js.map",
+  "static/media/main.css": "/static/media/mark-select.svg",
+  "static/media/error-icon.svg": "/static/media/error-icon.svg",
+  "static/media/SPay-LogoMark.svg": "/static/media/SPay-LogoMark.svg",
+  "static/media/close-btn.svg": "/static/media/close-btn.svg",
+  "static/media/cardIcon.svg": "/static/media/cardIcon.svg",
+  "static/media/bankIcon.svg": "/static/media/bankIcon.svg",
+  "static/media/ussdIcon.svg": "/static/media/ussdIcon.svg",
+  "static/media/qrIcon.svg": "/static/media/qrIcon.svg",
+  "static/media/mc_symbol.svg": "/static/media/mc_symbol.svg",
+  "static/media/visa-icon.svg": "/static/media/visa-icon.svg",
+  "static/media/cardIcon-black.svg": "/static/media/cardIcon-black.svg",
+  "static/media/successful-img.svg": "/static/media/successful-img.svg",
+  "static/css/spay_checkout.css.map": "/static/css/spay_checkout.css.map",
+  "index.html": "/index.html",
+  "precache-manifest.6f0449d39c5fe76adc95fa274790ac6f.js": "/precache-manifest.6f0449d39c5fe76adc95fa274790ac6f.js",
+  "service-worker.js": "/service-worker.js"
+}
