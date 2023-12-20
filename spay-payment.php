@@ -3,19 +3,18 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
  
 
-const LIVE_JS_URL = plugins_url('assets/pay_live/static/js/spay_checkout.js', __FILE__);
-const TEST_JS_URL = plugins_url('assets/pay_test/static/js/spay_checkout.js', __FILE__);
-const ICON_URL =   plugins_url('assets/images/spay-icon.png', __FILE__);
-
-
 class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
+    
+    const LIVE_JS_URL = plugins_url('assets/pay_live/static/js/spay_checkout.js', __FILE__);
+    const TEST_JS_URL = plugins_url('assets/pay_test/static/js/spay_checkout.js', __FILE__);
+
     public function __construct() {
         $this->id                 = 'dq_spay_payments';
         $this->method_title       = esc_html__('SPay', 'dq-spay-gateway');
         $this->method_description = esc_html__('SPay Plug-in for WooCommerce', 'dq-spay-gateway');
         $this->title              = $this->get_option('title');
         $this->description        = $this->get_option('description');
-        $this->icon               = apply_filters('woocommerce_webpay_icon',ICON_URL);
+        $this->icon               = apply_filters('woocommerce_webpay_icon',plugins_url('assets/images/spay-icon.png', __FILE__));
         $this->has_fields         = false;
 
         // Setting defines
@@ -104,13 +103,13 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
 
     // Check if it is valid
     public function is_valid_for_use() {
-    //   if (!in_array(get_woocommerce_currency(), array('NGN'), true)) {
-    //       $this->msg = sprintf(
-    //           esc_html('SPay Gateway doesn\'t support your store currency, set it to Nigerian Naira &#8358; <a href="%s">here</a>'),
-    //           esc_url(admin_url('admin.php?page=wc-settings&tab=general'))
-    //       );
-    //       return false;
-    //   }
+        //   if (!in_array(get_woocommerce_currency(), array('NGN'), true)) {
+        //       $this->msg = sprintf(
+        //           esc_html('SPay Gateway doesn\'t support your store currency, set it to Nigerian Naira &#8358; <a href="%s">here</a>'),
+        //           esc_url(admin_url('admin.php?page=wc-settings&tab=general'))
+        //       );
+        //       return false;
+        //   }
 
       return true;
     }
@@ -375,7 +374,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     // Check transaction details
     public function check_transaction_details($txnref) {
       $environment = ($this->environment === "yes") ? 'TRUE' : 'FALSE';
-      $status_url  = ($environment === 'FALSE') ? 'https://collections.spaybusiness.com/api/v1/payments/' : 'https://testcollections.spaybusiness.com/api/v1/payments/';
+      $status_url  = ($environment === 'FALSE') ? LIVE_JS_URL : TEST_JS_URL;
       $url         = $status_url . $txnref;
   
       $args     = array(

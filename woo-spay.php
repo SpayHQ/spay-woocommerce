@@ -12,10 +12,6 @@
 */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly  
 
-
-define( 'WC_SPAY_VERSION', '1.0' );
-define( 'WC_SPAY_MAIN_FILE', __FILE__ );
-
 add_action( 'plugins_loaded', 'dq_spay_payments_init', 0 );
 function dq_spay_payments_init() {
     //if condition use to do nothin while WooCommerce is not installed
