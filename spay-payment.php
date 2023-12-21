@@ -1,13 +1,5 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
- 
-
-const LIVE_JS_URL = plugins_url('assets/pay_live/static/js/spay_checkout.js', __FILE__);
-const TEST_JS_URL = plugins_url('assets/pay_test/static/js/spay_checkout.js', __FILE__);
-const ICON_URL =   plugins_url('assets/images/spay-icon.png', __FILE__);
-
-
 class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     public function __construct() {
         $this->id                 = 'dq_spay_payments';
@@ -15,7 +7,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
         $this->method_description = esc_html__('SPay Plug-in for WooCommerce', 'dq-spay-gateway');
         $this->title              = $this->get_option('title');
         $this->description        = $this->get_option('description');
-        $this->icon               = apply_filters('woocommerce_webpay_icon',ICON_URL);
+        $this->icon               = apply_filters('woocommerce_webpay_icon',plugins_url('assets/images/spay-icon.png', __FILE__));
         $this->has_fields         = false;
 
         // Setting defines
@@ -137,6 +129,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     // } 
   
 
+
     // Display Button
     public function generate_spay_form($order_id) {
       // Get order details
@@ -149,11 +142,12 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
       $billing_email  = $this->get_order_billing_email($customer_order);
       $billing_phone  = $this->get_order_billing_phone($customer_order);
 
+
       // Check setting environment
       $environment = ($this->environment === "yes") ? 'TRUE' : 'FALSE';
 
       // Set environment URL for JavaScript
-      $environment_url = ($environment === 'FALSE')? LIVE_JS_URL : TEST_JS_URL;
+      $environment_url = ($environment === 'FALSE')? wp_enqueue_script('spay_checkout_live', 'assets/pay_live/static/js/spay_checkout.js') : wp_enqueue_script('spay_checkout_live','assets/pay_test/static/js/spay_checkout.js');
 
       wp_enqueue_style('style', 'assets/pay_live/static/css/spay_checkout.css');
 
@@ -201,7 +195,6 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
           <script type="text/javascript" src="' . esc_url($environment_url) . '"> </script>
       ';
     }
-
 
     // Helper function to get billing first name
     private function get_order_billing_first_name($order) {
@@ -375,7 +368,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     // Check transaction details
     public function check_transaction_details($txnref) {
       $environment = ($this->environment === "yes") ? 'TRUE' : 'FALSE';
-      $status_url  = ($environment === 'FALSE') ? 'https://collections.spaybusiness.com/api/v1/payments/' : 'https://testcollections.spaybusiness.com/api/v1/payments/';
+      $status_url  = ($environment === 'FALSE') ? wp_enqueue_script('spay_checkout_live', 'assets/pay_live/static/js/spay_checkout.js') : wp_enqueue_script('spay_checkout_live','assets/pay_test/static/js/spay_checkout.js');
       $url         = $status_url . $txnref;
   
       $args     = array(
@@ -398,7 +391,6 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
             return;
         }
     
-
         $environment      = ($this->environment === "yes") ? true : false;
         if($environment){
             $settings_page_url = esc_url(admin_url('admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments'));
