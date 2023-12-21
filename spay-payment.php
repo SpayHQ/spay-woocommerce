@@ -1,13 +1,6 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly   
- 
-
 class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
-    
-    const LIVE_JS_URL = plugins_url('assets/pay_live/static/js/spay_checkout.js', __FILE__);
-    const TEST_JS_URL = plugins_url('assets/pay_test/static/js/spay_checkout.js', __FILE__);
-
     public function __construct() {
         $this->id                 = 'dq_spay_payments';
         $this->method_title       = esc_html__('SPay', 'dq-spay-gateway');
@@ -103,13 +96,13 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
 
     // Check if it is valid
     public function is_valid_for_use() {
-        //   if (!in_array(get_woocommerce_currency(), array('NGN'), true)) {
-        //       $this->msg = sprintf(
-        //           esc_html('SPay Gateway doesn\'t support your store currency, set it to Nigerian Naira &#8358; <a href="%s">here</a>'),
-        //           esc_url(admin_url('admin.php?page=wc-settings&tab=general'))
-        //       );
-        //       return false;
-        //   }
+    //   if (!in_array(get_woocommerce_currency(), array('NGN'), true)) {
+    //       $this->msg = sprintf(
+    //           esc_html('SPay Gateway doesn\'t support your store currency, set it to Nigerian Naira &#8358; <a href="%s">here</a>'),
+    //           esc_url(admin_url('admin.php?page=wc-settings&tab=general'))
+    //       );
+    //       return false;
+    //   }
 
       return true;
     }
@@ -136,6 +129,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     // } 
   
 
+
     // Display Button
     public function generate_spay_form($order_id) {
       // Get order details
@@ -148,11 +142,12 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
       $billing_email  = $this->get_order_billing_email($customer_order);
       $billing_phone  = $this->get_order_billing_phone($customer_order);
 
+
       // Check setting environment
       $environment = ($this->environment === "yes") ? 'TRUE' : 'FALSE';
 
       // Set environment URL for JavaScript
-      $environment_url = ($environment === 'FALSE')? LIVE_JS_URL : TEST_JS_URL;
+      $environment_url = ($environment === 'FALSE')? wp_enqueue_script('spay_checkout_live', 'assets/pay_live/static/js/spay_checkout.js') : wp_enqueue_script('spay_checkout_live','assets/pay_test/static/js/spay_checkout.js');
 
       wp_enqueue_style('style', 'assets/pay_live/static/css/spay_checkout.css');
 
@@ -200,7 +195,6 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
           <script type="text/javascript" src="' . esc_url($environment_url) . '"> </script>
       ';
     }
-
 
     // Helper function to get billing first name
     private function get_order_billing_first_name($order) {
@@ -374,7 +368,7 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
     // Check transaction details
     public function check_transaction_details($txnref) {
       $environment = ($this->environment === "yes") ? 'TRUE' : 'FALSE';
-      $status_url  = ($environment === 'FALSE') ? LIVE_JS_URL : TEST_JS_URL;
+      $status_url  = ($environment === 'FALSE') ? wp_enqueue_script('spay_checkout_live', 'assets/pay_live/static/js/spay_checkout.js') : wp_enqueue_script('spay_checkout_live','assets/pay_test/static/js/spay_checkout.js');
       $url         = $status_url . $txnref;
   
       $args     = array(
@@ -397,7 +391,6 @@ class DQ_Spay_Payments extends WC_Payment_Gateway_CC {
             return;
         }
     
-
         $environment      = ($this->environment === "yes") ? true : false;
         if($environment){
             $settings_page_url = esc_url(admin_url('admin.php?page=wc-settings&tab=checkout&section=dq_spay_payments'));
